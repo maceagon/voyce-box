@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>voyce.box</title>
+    <meta
+      name="description"
+      content="MacEagon Voyce — musician, writer, and technologist. Building Braneworld, hosting Guided by Voyces."
+    />
+    <meta property="og:title" content="voyce.box" />
+    <meta
+      property="og:description"
+      content="MacEagon Voyce — musician, writer, and technologist. Building Braneworld, hosting Guided by Voyces."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://voyce.box" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ========================================
+           VOYCE.BOX — LANDING PAGE
+           Colors: #2B2A2A (dark), #F0EAE0 (light)
+           Fonts: GT Super Display (headers — load locally),
+                  IBM Plex Sans (subheaders),
+                  Inter (body)
+           ======================================== */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        background: #2b2a2a;
+        color: #f0eae0;
+        font-family: "Inter", sans-serif;
+      }
+
+      /* ----------------------------------------
+           GT Super Display — load your local files
+           Place gt-super-display-bold.woff2 in /fonts/
+           ---------------------------------------- */
+      @font-face {
+        font-family: "GT Super Display";
+        src: url("fonts/gt-super-display-bold.otf") format("otf");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* ----------------------------------------
+           HERO SECTION
+           ---------------------------------------- */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 3.5rem 1.5rem;
+        min-height: 320px;
+        background: #2b2a2a;
+      }
+
+      .hero-photo {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1.25rem;
+      }
+
+      .hero-name {
+        font-family: "GT Super Display", Georgia, serif;
+        font-weight: 700;
+        font-size: 1.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #f0eae0;
+        margin-bottom: 0.75rem;
+      }
+
+      .hero-description {
+        font-family: "Inter", sans-serif;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.7;
+        color: #a09e98;
+        max-width: 420px;
+      }
+
+      /* ----------------------------------------
+           LINK CONTAINERS
+           To add a new container:
+           1. Copy a <a class="link-container"> block
+           2. Update href, background-image, header, subheader
+           3. Add your background image to /images/
+           ---------------------------------------- */
+      .link-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        height: 200px;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+      }
+
+      .link-container:hover {
+        opacity: 0.9;
+      }
+
+      .link-container-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+      }
+
+      .link-container-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(43, 42, 42, 0.65);
+        z-index: 2;
+      }
+
+      .link-container-content {
+        position: relative;
+        z-index: 3;
+      }
+
+      .link-container-header {
+        font-family: "GT Super Display", Georgia, serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #f0eae0;
+        margin-bottom: 0.25rem;
+      }
+
+      .link-container-subheader {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 0.8125rem;
+        font-weight: 400;
+        color: #c0bdb6;
+      }
+
+      /* ----------------------------------------
+           RESPONSIVE
+           ---------------------------------------- */
+      @media (min-width: 768px) {
+        .hero {
+          padding: 4.5rem 2rem;
+          min-height: 380px;
+        }
+
+        .hero-photo {
+          width: 120px;
+          height: 120px;
+        }
+
+        .hero-name {
+          font-size: 2.25rem;
+        }
+
+        .hero-description {
+          font-size: 0.9375rem;
+          max-width: 500px;
+        }
+
+        .link-container {
+          height: 240px;
+        }
+
+        .link-container-header {
+          font-size: 1.875rem;
+        }
+
+        .link-container-subheader {
+          font-size: 0.875rem;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .hero {
+          padding: 5rem 2rem;
+          min-height: 420px;
+        }
+
+        .hero-name {
+          font-size: 2.5rem;
+        }
+
+        .link-container {
+          height: 280px;
+        }
+
+        .link-container-header {
+          font-size: 2.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================
+         HERO
+         Replace src with your photo path
+         ============================================ -->
+    <section class="hero">
+      <img
+        class="hero-photo"
+        src="images/hero-photo.jpg"
+        alt="MacEagon Voyce"
+      />
+      <h1 class="hero-name">MacEagon Voyce</h1>
+      <p class="hero-description">
+        Minnesota-born, London-based musician, writer, and technologist.
+        Building Braneworld, hosting Guided by Voyces, and exploring the space
+        between who we are and who we present to the world.
+      </p>
+    </section>
+
+    <!-- ============================================
+         LINK CONTAINERS
+         To add/remove: copy or delete an <a> block.
+         Replace background-image URLs with your assets.
+         Recommended image size: 1920x640 (3:1)
+         ============================================ -->
+
+    <a
+      class="link-container"
+      href="https://guidedbyvoyces.substack.com/"
+      target="_blank"
+      rel="noopener"
+    >
+      <div
+        class="link-container-bg"
+        style="background-image: url(&quot;images/gbv-bg.jpg&quot;)"
+      ></div>
+      <div class="link-container-overlay"></div>
+      <div class="link-container-content">
+        <h2 class="link-container-header">Guided by Voyces</h2>
+        <p class="link-container-subheader">newsletter & conversation series</p>
+      </div>
+    </a>
+
+    <a
+      class="link-container"
+      href="https://www.youtube.com/channel/UCKOh5PaarhrexbYH8r0xTwg"
+      target="_blank"
+      rel="noopener"
+    >
+      <div
+        class="link-container-bg"
+        style="background-image: url(&quot;images/youtube-bg.jpg&quot;)"
+      ></div>
+      <div class="link-container-overlay"></div>
+      <div class="link-container-content">
+        <h2 class="link-container-header">YouTube</h2>
+        <p class="link-container-subheader">episodes, clips & music</p>
+      </div>
+    </a>
+
+    <a
+      class="link-container"
+      href="https://braneworld.xyz"
+      target="_blank"
+      rel="noopener"
+    >
+      <div
+        class="link-container-bg"
+        style="background-image: url(&quot;images/braneworld-bg.jpg&quot;)"
+      ></div>
+      <div class="link-container-overlay"></div>
+      <div class="link-container-content">
+        <h2 class="link-container-header">Braneworld</h2>
+        <p class="link-container-subheader">the storytelling container</p>
+      </div>
+    </a>
+
+    <a
+      class="link-container"
+      href="https://www.instagram.com/voyce.box/"
+      target="_blank"
+      rel="noopener"
+    >
+      <div
+        class="link-container-bg"
+        style="background-image: url(&quot;images/instagram-bg.jpg&quot;)"
+      ></div>
+      <div class="link-container-overlay"></div>
+      <div class="link-container-content">
+        <h2 class="link-container-header">Instagram</h2>
+        <p class="link-container-subheader">@voyce.box</p>
+      </div>
+    </a>
+  </body>
+</html>
