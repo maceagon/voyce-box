@@ -108,6 +108,7 @@
            2. Update href, background-image, header, subheader
            3. Add your background image to /images/
            ---------------------------------------- */
+
       .link-container {
         display: flex;
         flex-direction: column;
@@ -168,6 +169,24 @@
         font-size: 0.8125rem;
         font-weight: 400;
         color: #c0bdb6;
+      }
+
+      .featured-overlay {
+        background: rgba(43, 42, 42, 0.45);
+      }
+
+      .featured-label {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 0.6875rem;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        color: #f0eae0;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+      }
+
+      .featured .link-container-header {
+        color: #c57b6b;
       }
 
       /* ----------------------------------------
@@ -253,6 +272,26 @@
          ============================================ -->
 
     <a
+      class="link-container featured"
+      href="https://musicx.substack.com/cp/193053061"
+      target="_blank"
+      rel="noopener"
+    >
+      <div
+        class="link-container-bg"
+        style="background-image: url(&quot;images/featured-bg.jpg&quot;)"
+      ></div>
+      <div class="link-container-overlay featured-overlay"></div>
+      <div class="link-container-content">
+        <p class="featured-label">FEATURED</p>
+        <h2 class="link-container-header">Patronage Nouveau</h2>
+        <p class="link-container-subheader">
+          braneworld, the new crayons, and a replicable protocol for patronage
+        </p>
+      </div>
+    </a>
+
+    <a
       class="link-container"
       href="https://guidedbyvoyces.substack.com/"
       target="_blank"
@@ -319,5 +358,32 @@
         <p class="link-container-subheader">@voyce.box</p>
       </div>
     </a>
+
+    <script
+      data-goatcounter="https://voyce-box.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+
+    <script>
+      document.querySelectorAll(".link-container").forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          var label = this.querySelector(
+            ".link-container-header",
+          ).textContent.trim();
+          var url = this.href;
+          if (window.goatcounter && window.goatcounter.count) {
+            window.goatcounter.count({
+              path: "click-" + label.toLowerCase().replace(/\s+/g, "-"),
+              event: true,
+            });
+          }
+          setTimeout(function () {
+            window.open(url, "_blank");
+          }, 150);
+        });
+      });
+    </script>
   </body>
 </html>
