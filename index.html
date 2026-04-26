@@ -69,8 +69,8 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 3.5rem 1.5rem;
-        min-height: 320px;
+        padding: 3.5rem 1.5rem 1rem;
+        min-height: 120px;
         background: #2b2a2a;
       }
 
@@ -194,8 +194,8 @@
            ---------------------------------------- */
       @media (min-width: 768px) {
         .hero {
-          padding: 4.5rem 2rem;
-          min-height: 380px;
+          padding: 4.5rem 2rem 1.5rem;
+          min-height: 200px;
         }
 
         .hero-photo {
@@ -227,8 +227,8 @@
 
       @media (min-width: 1200px) {
         .hero {
-          padding: 5rem 2rem;
-          min-height: 420px;
+          padding: 5rem 2rem 1.5rem;
+          min-height: 240px;
         }
 
         .hero-name {
@@ -263,6 +263,89 @@
         between who we are and who we present to the world.
       </p>
     </section>
+
+    <div
+      style="
+        padding: 24px 1.5rem;
+        text-align: center;
+        background: #2b2a2a;
+        border-bottom: 1px solid #3a3937;
+      "
+    >
+      <p
+        style="
+          font-family: &quot;GT Super Display&quot;, Georgia, serif;
+          font-weight: 700;
+          font-size: 1rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: #f0eae0;
+          margin-bottom: 4px;
+        "
+      >
+        Sign up for the next secret show
+      </p>
+      <p
+        style="
+          font-family: &quot;IBM Plex Sans&quot;, sans-serif;
+          font-size: 0.75rem;
+          color: #7a7874;
+          margin-bottom: 16px;
+        "
+      >
+        Meridians — intimate performances in London
+      </p>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          gap: 8px;
+          max-width: 400px;
+          margin: 0 auto;
+        "
+      >
+        <input
+          type="email"
+          id="meridians-email"
+          placeholder="your email"
+          style="
+            flex: 1;
+            padding: 10px 14px;
+            background: #1a1a1a;
+            border: 1px solid #3a3937;
+            color: #f0eae0;
+            font-family: &quot;IBM Plex Sans&quot;, sans-serif;
+            font-size: 0.8125rem;
+            outline: none;
+          "
+        />
+        <button
+          onclick="submitMeridians()"
+          style="
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid #c57b6b;
+            color: #c57b6b;
+            font-family: &quot;IBM Plex Sans&quot;, sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+          "
+        >
+          Submit
+        </button>
+      </div>
+      <p
+        id="meridians-msg"
+        style="
+          font-size: 0.75rem;
+          color: #c57b6b;
+          margin-top: 10px;
+          display: none;
+        "
+      ></p>
+    </div>
 
     <!-- ============================================
          LINK CONTAINERS
@@ -384,6 +467,32 @@
           }, 150);
         });
       });
+    </script>
+    <script>
+      function submitMeridians() {
+        var email = document.getElementById("meridians-email").value;
+        var msg = document.getElementById("meridians-msg");
+        if (!email) return;
+        fetch("https://formspree.io/f/myklvzrj", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: email }),
+        })
+          .then(function (r) {
+            if (r.ok) {
+              msg.textContent = "you're in. see you soon.";
+              msg.style.display = "block";
+              document.getElementById("meridians-email").value = "";
+            } else {
+              msg.textContent = "something went wrong. try again.";
+              msg.style.display = "block";
+            }
+          })
+          .catch(function () {
+            msg.textContent = "something went wrong. try again.";
+            msg.style.display = "block";
+          });
+      }
     </script>
   </body>
 </html>
